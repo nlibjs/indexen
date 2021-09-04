@@ -37,7 +37,7 @@
         "version:add": "git add ."
     },
     "dependencies": {
-        "@nlib/nodetool": "^0.2.0"
+        "@nlib/nodetool": "0.2.0"
     },
     "devDependencies": {
         "@nlib/eslint-config": "3.17.24",
