@@ -34,11 +34,11 @@
         "version:add": "git add ."
     },
     "dependencies": {
-        "@nlib/nodetool": "0.2.0"
+        "@nlib/nodetool": "0.3.0"
     },
     "devDependencies": {
-        "@nlib/eslint-config": "3.17.24",
-        "@nlib/githooks": "0.0.5",
+        "@nlib/eslint-config": "3.17.25",
+        "@nlib/githooks": "0.1.0",
         "@types/eslint": "7.28.0",
         "@types/node": "16.7.10",
         "@types/picomatch": "2.2.6",
