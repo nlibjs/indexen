@@ -21,6 +21,7 @@ ava('generate index', async (t) => {
     await afs.writeFile(path.join(directory, 'b/f.mjs'), '');
     await afs.writeFile(path.join(directory, 'b/testFoo.ts'), '');
     await afs.writeFile(path.join(directory, 'b/x.test.ts'), '');
+    await afs.writeFile(path.join(directory, 'b/y.private.ts'), '');
     await afs.mkdir(path.join(directory, 'test'));
     await afs.writeFile(path.join(directory, 'test/g.js'), '');
     const output = path.join(directory, 'index.js');

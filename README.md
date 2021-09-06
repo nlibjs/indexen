@@ -7,14 +7,27 @@ A command line tool to generate index files.
 
 ## Usage
 
+```
+indexen --input path/to/dir --output path/to/dir/index.js
+
+  --input, -i [string]           A directory indexen reads from
+  --output, -o [string]          A file path indexen writes to
+  --ext [string]                 Specify extensions
+  --exclude [string]             Specify patterns to exclude
+  --help, -h                     Show help
+  --version, -v                  Output the version number
+```
+
 Assume you have files below:
 
 ```
 src/file1.ts
+src/file1.test.ts
 src/file2.ts
 src/dir1/file3.ts
 src/dir1/file4.ts
 src/dir2/file5.ts
+src/file6.private.ts
 ```
 
 Then execute `@nlib/indexen`:

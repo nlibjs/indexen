@@ -67,6 +67,7 @@ export const indexenCLI = async (
                     normalizeSlash(`${directory}/**/*.d.ts`),
                     normalizeSlash(`${directory}/**/*.test.*`),
                     normalizeSlash(`${directory}/**/test/**/*`),
+                    normalizeSlash(`${directory}/**/*.private.*`),
                 ])
                 .concat(normalizeSlash(output)),
             }),
