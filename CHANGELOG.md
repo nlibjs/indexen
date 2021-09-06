@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.1.2 (2021-09-06)
+
+### Features
+
+- add *.private.* to exclude ([b92b610](https://github.com/nlibjs/indexen/commit/b92b6105b44acbc0004942c18501654fbf2f84ed))
+
+### Dependency Upgrades
+
+- @nlib/eslint-config:3.17.24→3.17.25 @nlib/githooks:0.0.5→0.1.0 @nlib/nodetool:0.2.0→0.3.0 ([3019a1e](https://github.com/nlibjs/indexen/commit/3019a1ed52a56f6ee2004eb316ab650790ac7dea))
+
+
 ## v0.1.1 (2021-09-04)
 
 ### Features
