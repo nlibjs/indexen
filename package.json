@@ -37,7 +37,7 @@
         "@nlib/nodetool": "0.4.2"
     },
     "devDependencies": {
-        "@nlib/eslint-config": "3.17.25",
+        "@nlib/eslint-config": "3.17.28",
         "@nlib/githooks": "0.1.0",
         "@types/eslint": "7.28.1",
         "@types/node": "16.11.1",
