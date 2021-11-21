@@ -39,7 +39,7 @@
     "devDependencies": {
         "@nlib/eslint-config": "3.17.28",
         "@nlib/githooks": "0.1.0",
-        "@types/eslint": "7.28.2",
+        "@types/eslint": "7.29.0",
         "@types/node": "16.11.7",
         "@types/picomatch": "2.3.0",
         "@typescript-eslint/eslint-plugin": "4.33.0",
