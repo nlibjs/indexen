@@ -13,7 +13,7 @@
     "homepage": "https://github.com/nlibjs/indexen",
     "repository": "https://github.com/nlibjs/indexen",
     "engines": {
-        "node": ">=12"
+        "node": ">=14"
     },
     "type": "module",
     "main": "./lib/indexen.mjs",
