@@ -1,30 +1,51 @@
-import {promises as afs} from 'fs';
+import test from 'ava';
+import * as childProcess from 'child_process';
+import * as fs from 'fs/promises';
+import {createRequire} from 'module';
 import * as os from 'os';
 import * as path from 'path';
-import ava from 'ava';
-import {indexenHeader} from './cli';
-import {exec} from '@nlib/nodetool';
-const scriptPath = path.join(__dirname, 'cli.ts');
+import {indexenHeader} from './indexen';
 
-ava('generate index', async (t) => {
-    const baseDirectory = await afs.mkdtemp(path.join(os.tmpdir(), 'indexen'));
-    const directory = path.join(baseDirectory, 'test');
-    await afs.mkdir(directory);
-    await afs.writeFile(path.join(directory, 'a.js'), '');
-    await afs.writeFile(path.join(directory, 'a.d.ts'), '');
-    await afs.mkdir(path.join(directory, 'b'));
-    await afs.writeFile(path.join(directory, 'b/b.js'), '');
-    await afs.writeFile(path.join(directory, 'b/b.ts'), '');
-    await afs.writeFile(path.join(directory, 'b/c.ts'), '');
-    await afs.writeFile(path.join(directory, 'b/d.js'), '');
-    await afs.writeFile(path.join(directory, 'b/e.cjs'), '');
-    await afs.writeFile(path.join(directory, 'b/f.mjs'), '');
-    await afs.writeFile(path.join(directory, 'b/testFoo.ts'), '');
-    await afs.writeFile(path.join(directory, 'b/x.test.ts'), '');
-    await afs.writeFile(path.join(directory, 'b/y.private.ts'), '');
-    await afs.mkdir(path.join(directory, 'test'));
-    await afs.writeFile(path.join(directory, 'test/g.js'), '');
-    const output = path.join(directory, 'index.js');
+const require = createRequire(import.meta.url);
+const cliFilePath = require.resolve('../lib/cli.mjs');
+
+type Files = Record<string, string>;
+
+const createTestDirectory = async () => await fs.mkdtemp(path.join(os.tmpdir(), 'indexen-'));
+const deployFiles = async (directory: string, files: Files) => {
+    for (const [relativePath, body] of Object.entries(files)) {
+        const dest = path.join(directory, ...relativePath.split('/'));
+        await fs.mkdir(path.dirname(dest), {recursive: true});
+        await fs.writeFile(dest, body);
+    }
+};
+const execute = async (cwd: string, ...args: Array<string>) => {
+    args.unshift(cliFilePath);
+    args.unshift('node');
+    await new Promise((resolve, reject) => {
+        const p = childProcess.spawn(args.join(' '), {cwd, shell: true, stdio: 'inherit'});
+        p.once('error', reject);
+        p.once('close', resolve);
+    });
+};
+
+test('generate index', async (t) => {
+    const baseDirectory = await createTestDirectory();
+    await deployFiles(baseDirectory, {
+        'test/a.js': '',
+        'test/a.d.ts': '',
+        'test/b/b.js': '',
+        'test/b/b.ts': '',
+        'test/b/c.ts': '',
+        'test/b/d.js': '',
+        'test/b/e.cjs': '',
+        'test/b/f.mjs': '',
+        'test/b/testFoo.ts': '',
+        'test/b/x.test.ts': '',
+        'test/b/y.private.ts': '',
+        'test/c1/c2/c.js': '',
+    });
+    const output = path.join(baseDirectory, 'test', 'index.ts');
     const expected = [
         indexenHeader,
         'export * from \'./a\';',
@@ -36,66 +57,6 @@ ava('generate index', async (t) => {
         'export * from \'./b/testFoo\';',
         '',
     ].join('\n');
-    await exec(`npx ts-node ${scriptPath} --input ${directory} --output ${output}`);
-    t.is(await afs.readFile(output, 'utf8'), expected);
-    await exec(`npx ts-node ${scriptPath} -i ${directory} -o ${output}`);
-    t.is(await afs.readFile(output, 'utf8'), expected);
-});
-
-ava('specify ext and exclude', async (t) => {
-    const baseDirectory = await afs.mkdtemp(path.join(os.tmpdir(), 'indexen'));
-    const directory = path.join(baseDirectory, 'test');
-    await afs.mkdir(directory);
-    await afs.writeFile(path.join(directory, 'a.js'), '');
-    await afs.writeFile(path.join(directory, 'a.d.ts'), '');
-    await afs.mkdir(path.join(directory, 'b'));
-    await afs.writeFile(path.join(directory, 'b/b.js'), '');
-    await afs.writeFile(path.join(directory, 'b/b.ts'), '');
-    await afs.writeFile(path.join(directory, 'b/c.ts'), '');
-    await afs.writeFile(path.join(directory, 'b/d.js'), '');
-    await afs.writeFile(path.join(directory, 'b/e.cjs'), '');
-    await afs.writeFile(path.join(directory, 'b/f.mjs'), '');
-    await afs.writeFile(path.join(directory, 'b/testFoo.ts'), '');
-    await afs.writeFile(path.join(directory, 'b/x.test.ts'), '');
-    await afs.mkdir(path.join(directory, 'test'));
-    await afs.writeFile(path.join(directory, 'test/g.js'), '');
-    const output = path.join(directory, 'index.js');
-    const expected = [
-        indexenHeader,
-        'export * from \'./b/b\';',
-        'export * from \'./b/d\';',
-        'export * from \'./b/e\';',
-        'export * from \'./test/g\';',
-        '',
-    ].join('\n');
-    await exec([
-        `npx ts-node ${scriptPath}`,
-        '--input',
-        directory,
-        '--output',
-        output,
-        '--ext',
-        'js',
-        '--ext',
-        'cjs',
-        '--exclude',
-        'a.js',
-    ].join(' '));
-    t.is(await afs.readFile(output, 'utf8'), expected);
-});
-
-ava('show help', async (t) => {
-    const {stdout: help1} = await exec(`npx ts-node ${scriptPath} --help`);
-    const {stdout: help2} = await exec(`npx ts-node ${scriptPath} -h`);
-    for (const keyword of ['--input', '-i', '--output', '-o', '--ext', '--help', '-h', '--version', '-v']) {
-        t.true(help1.includes(keyword));
-        t.true(help2.includes(keyword));
-    }
-});
-
-ava('output the version number', async (t) => {
-    const {stdout: version1} = await exec(`npx ts-node ${scriptPath} --version`);
-    const {stdout: version2} = await exec(`npx ts-node ${scriptPath} -v`);
-    t.true((/\d+\.\d+\.\d+/).test(version1.trim()));
-    t.true((/\d+\.\d+\.\d+/).test(version2.trim()));
+    await execute(baseDirectory, '-o', output, '\'*.js\' \'b/*\'');
+    t.is(await fs.readFile(output, 'utf8'), expected);
 });
