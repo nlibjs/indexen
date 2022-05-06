@@ -54,6 +54,6 @@ test('generate index', async (t) => {
         'export * from \'./b/testFoo\';',
         '',
     ].join('\n');
-    await execute(baseDirectory, '-o', output, '\'*.js\' \'b/*\'');
+    await execute(baseDirectory, '-o', output, '"*.js" "b/*"');
     t.is(await fs.readFile(output, 'utf8'), expected);
 });
