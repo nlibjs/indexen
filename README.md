@@ -8,14 +8,18 @@ A command line tool to generate index files.
 ## Usage
 
 ```
-indexen --input path/to/dir --output path/to/dir/index.js
+Usage: npx @nlib/indexen [options] <patterns...>
 
-  --input, -i [string]           A directory indexen reads from
-  --output, -o [string]          A file path indexen writes to
-  --ext [string]                 Specify extensions
-  --exclude [string]             Specify patterns to exclude
-  --help, -h                     Show help
-  --version, -v                  Output the version number
+Arguments:
+  patterns                     Patterns of files to be included. It will be passed to fast-glob.
+
+Options:
+  -o, --output <path>          A path where the result is written to.
+  -e, --exclude <patterns...>  Patterns of files to be excluded. It will be passed to fast-glob.
+  --noext                      It true, the output will be [export * from "./a"] not [export * from
+                               "./a.js"].
+  -V, --version                output the version number
+  -h, --help                   display help for command
 ```
 
 Assume you have files below:
@@ -33,7 +37,7 @@ src/file6.private.ts
 Then execute `@nlib/indexen`:
 
 ```
-npx @nlib/indexen --input src --output src/index.ts
+npx @nlib/indexen --output src/index.ts "src/**"
 ```
 
 `@nlib/indexen` generates `src/index.ts`:
