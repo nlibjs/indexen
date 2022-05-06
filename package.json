@@ -71,7 +71,7 @@
     },
     "ava": {
         "files": [
-            "lib/**/*.test.mjs"
+            "lib/**/*.test.{ts,tsx,js,mjs,cjs,jsx}"
         ]
     },
     "lint-staged": {
