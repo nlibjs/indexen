@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.2 (2022-06-18)
+
+
 ## v0.2.1 (2022-06-18)
 
 ### Continuous Integration
