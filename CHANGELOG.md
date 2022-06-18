@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.2.1 (2022-06-18)
+
+### Continuous Integration
+
+- fix node version ([40e63ce](https://github.com/nlibjs/indexen/commit/40e63ceddd2326da1c4dcba86ce425557f02d06d))
+
+### Dependency Upgrades
+
+- @types/node:17.0.31→18.0.0 @typescript-eslint/eslint-plugin:5.22.0→5.28.0 @typescript-eslint/parser:5.22.0→5.28.0 ava:4.2.0→4.3.0 commander:9.2.0→9.3.0 eslint:8.14.0→8.18.0 lint-staged:12.4.1→13.0.2 typescript:4.6.4→4.7.4 ([d3685de](https://github.com/nlibjs/indexen/commit/d3685debc88f5c542c4291a36c318df50e95dad1))
+
+
 ## v0.2.0 (2022-05-06)
 
 ### Features
