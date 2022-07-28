@@ -3,7 +3,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "version": "0.2.5",
+    "version": "0.2.4",
     "license": "Apache-2.0",
     "author": {
         "name": "Kei Ito",
@@ -35,7 +35,10 @@
         "test:build:esmify": "nlib-esmify --keepSourceMap \"lib/**\"",
         "test:unit": "ava",
         "lint": "eslint --ext .ts src",
-        "postversion": "nlib-changelog --output CHANGELOG.md"
+        "postversion": "run-s postversion:*",
+        "postversion:changelog": "nlib-changelog --output CHANGELOG.md",
+        "postversion:add": "git add .",
+        "postversion:amend": "git commit -m \"$(git log -1 --format=%s)\" --amend"
     },
     "dependencies": {
         "commander": "9.4.0",
