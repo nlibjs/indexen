@@ -3,7 +3,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "version": "0.2.2",
+    "version": "0.2.3",
     "license": "Apache-2.0",
     "author": {
         "name": "Kei Ito",
@@ -32,11 +32,11 @@
         "test": "run-s test:*",
         "test:build": "run-s test:build:*",
         "test:build:tsc": "tsc",
-        "test:build:esmify": "esmify --keepSourceMap \"lib/**\"",
+        "test:build:esmify": "nlib-esmify --keepSourceMap \"lib/**\"",
         "test:unit": "ava",
         "lint": "eslint --ext .ts src",
         "version": "run-s version:changelog version:add",
-        "version:changelog": "npx @nlib/changelog --output CHANGELOG.md",
+        "version:changelog": "nlib-changelog --output CHANGELOG.md",
         "version:add": "git add ."
     },
     "dependencies": {
@@ -44,6 +44,7 @@
         "fast-glob": "3.2.11"
     },
     "devDependencies": {
+        "@nlib/changelog": "0.2.1",
         "@nlib/eslint-config": "3.18.0",
         "@nlib/esmify": "0.1.4",
         "@nlib/githooks": "0.1.0",
