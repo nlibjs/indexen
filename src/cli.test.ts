@@ -29,7 +29,7 @@ const execute = async (cwd: string, ...args: Array<string>) => {
 test('generate index', async (t) => {
     const baseDirectory = await createTestDirectory();
     await deployFiles(baseDirectory, {
-        'test/index.ts': '',
+        'test/index.js': '',
         'test/a.js': '',
         'test/a.d.ts': '',
         'test/b/b.js': '',
