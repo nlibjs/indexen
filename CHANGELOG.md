@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.2.5 (2022-07-28)
+
+### Bug Fixes
+
+- use absolute path ([05fd42c](https://github.com/nlibjs/indexen/commit/05fd42cf1810f65eb65e3f7f429206a93fe0922e))
+
+
 ## v0.2.4 (2022-07-28)
 
 ### Bug Fixes
