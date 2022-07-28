@@ -45,7 +45,7 @@
     },
     "devDependencies": {
         "@nlib/eslint-config": "3.18.0",
-        "@nlib/esmify": "0.1.2",
+        "@nlib/esmify": "0.1.4",
         "@nlib/githooks": "0.1.0",
         "@types/node": "18.6.2",
         "@typescript-eslint/eslint-plugin": "5.31.0",
