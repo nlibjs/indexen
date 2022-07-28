@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.2.1 (2022-07-28)
+
+### Bug Fixes
+
+- ignore output ([aa7a2c0](https://github.com/nlibjs/indexen/commit/aa7a2c08c47fdd2cf8ad0f75beac25bb46cf4253))
+
+### Dependency Upgrades
+
+- install @nlib/changelog ([a2321b3](https://github.com/nlibjs/indexen/commit/a2321b3c56e0ec113b2ca667fe34edc8f4c24873))
+- @nlib/esmify:0.1.2→0.1.4 ([d495025](https://github.com/nlibjs/indexen/commit/d495025bc0269d85cb3c94382f7ce15066f6fccf))
+- @types/node:18.0.6→18.6.2 ([15ac6cb](https://github.com/nlibjs/indexen/commit/15ac6cb70b80f7689a28bf4e28fc61548f008527))
+- @typescript-eslint/eslint-plugin:5.30.7→5.31.0 @typescript-eslint/parser:5.30.7→5.31.0 ([bbff83f](https://github.com/nlibjs/indexen/commit/bbff83fb98c19be0438d4edf6bbcc455cc9813ac))
+
+
 ## v0.2.2 (2022-06-18)
 
 
