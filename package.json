@@ -42,7 +42,7 @@
     },
     "dependencies": {
         "commander": "9.4.0",
-        "fast-glob": "3.2.11"
+        "fast-glob": "3.2.12"
     },
     "devDependencies": {
         "@nlib/changelog": "0.2.3",
