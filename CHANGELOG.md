@@ -1,10 +1,22 @@
 # Changelog
 
-## v0.2.5 (2022-07-28)
+## v0.2.6 (2023-01-09)
 
 ### Bug Fixes
 
 - use absolute path ([05fd42c](https://github.com/nlibjs/indexen/commit/05fd42cf1810f65eb65e3f7f429206a93fe0922e))
+
+### Styles
+
+- fix an eslint error ([0107ab7](https://github.com/nlibjs/indexen/commit/0107ab7ce6a3715c3aa4689c76b9445dce1bafef))
+- fix eslint errors ([867f814](https://github.com/nlibjs/indexen/commit/867f8142a3cd10f09c30cd81210efccedf88847d))
+
+### Dependency Upgrades
+
+- commander:9.4.1→9.5.0 ([276650b](https://github.com/nlibjs/indexen/commit/276650be3e35732beac61316e9b5c9de3b91e666))
+- @nlib/esmify:0.3.2→0.3.3 ([4171f33](https://github.com/nlibjs/indexen/commit/4171f3314a8f120a9ee5252bd060fb29a4ecd8ba))
+- @nlib/changelog:0.2.3→0.2.4 ([04031ff](https://github.com/nlibjs/indexen/commit/04031ffaacfef4276eb9d9f5efff86b07dec2616))
+- upgrade dependencies ([1af8e67](https://github.com/nlibjs/indexen/commit/1af8e6768c73059175b191f7626086540596320c))
 
 
 ## v0.2.4 (2022-07-28)
