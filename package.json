@@ -41,7 +41,7 @@
         "postversion:amend": "git commit -m \"$(git log -1 --format=%s)\" --amend"
     },
     "dependencies": {
-        "commander": "9.4.1",
+        "commander": "9.5.0",
         "fast-glob": "3.2.12"
     },
     "devDependencies": {
