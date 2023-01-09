@@ -1,9 +1,9 @@
-import test from 'ava';
 import * as childProcess from 'child_process';
 import * as fs from 'fs/promises';
 import {createRequire} from 'module';
 import * as os from 'os';
 import * as path from 'path';
+import test from 'ava';
 
 const require = createRequire(import.meta.url);
 const cliFilePath = require.resolve('./cli.mjs');

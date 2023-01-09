@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import {Command} from 'commander';
 import * as console from 'console';
 import * as fs from 'fs';
+import {Command} from 'commander';
 import {indexen} from './indexen';
 
 const packageJson = JSON.parse(

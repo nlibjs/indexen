@@ -1,7 +1,9 @@
-import fg from 'fast-glob';
+/* eslint-disable import/no-named-as-default-member */
 import * as fs from 'fs';
 import * as path from 'path';
 import * as stream from 'stream';
+import fg from 'fast-glob';
+
 export interface IndexenProps {
     output?: string,
     include: Array<string>,
