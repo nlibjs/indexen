@@ -1,7 +1,8 @@
+/* eslint-disable import/no-named-as-default-member */
 import * as fs from 'fs';
 import * as path from 'path';
 import * as stream from 'stream';
-import {stream as fgStream} from 'fast-glob';
+import fg from 'fast-glob';
 
 export interface IndexenProps {
     output?: string,
@@ -57,7 +58,7 @@ export const generateCode = async function* (
     if (output) {
         history.add(getRelativePath(output));
     }
-    for await (const file of fgStream(include, {cwd, ignore: exclude, absolute: true})) {
+    for await (const file of fg.stream(include, {cwd, ignore: exclude, absolute: true})) {
         const relativePath = getRelativePath(`${file}`);
         if (!history.has(relativePath)) {
             history.add(relativePath);
