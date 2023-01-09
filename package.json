@@ -45,7 +45,7 @@
         "fast-glob": "3.2.12"
     },
     "devDependencies": {
-        "@nlib/changelog": "0.2.3",
+        "@nlib/changelog": "0.2.4",
         "@nlib/eslint-config": "3.19.6",
         "@nlib/esmify": "0.3.2",
         "@nlib/githooks": "0.1.0",
