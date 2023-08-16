@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.2.6 (2023-01-09)
+## v0.2.7 (2023-08-16)
 
 ### Bug Fixes
 
@@ -11,8 +11,18 @@
 - fix an eslint error ([0107ab7](https://github.com/nlibjs/indexen/commit/0107ab7ce6a3715c3aa4689c76b9445dce1bafef))
 - fix eslint errors ([867f814](https://github.com/nlibjs/indexen/commit/867f8142a3cd10f09c30cd81210efccedf88847d))
 
+### Continuous Integration
+
+- v2 → v3 ([087047e](https://github.com/nlibjs/indexen/commit/087047e912d710e06b2a10c7a7ca791e90994170))
+
 ### Dependency Upgrades
 
+- @nlib/eslint-config:3.19.6→3.19.7 ([daaba9b](https://github.com/nlibjs/indexen/commit/daaba9b0abc6b75d5090172d00009fc43d94ce60))
+- @types/node:18.17.5→20.5.0 ([c6a4811](https://github.com/nlibjs/indexen/commit/c6a4811756266013ab4aec746c39efbfe96e0e6c))
+- @typescript-eslint/eslint-plugin:5.62.0→6.4.0 @typescript-eslint/parser:5.62.0→6.4.0 ([0458986](https://github.com/nlibjs/indexen/commit/0458986d41b077ef13ffe73e3be040591f9db4a0))
+- commander:9.5.0→11.0.0 ([0cba5e8](https://github.com/nlibjs/indexen/commit/0cba5e801b3475d21aa3ce9e1aed9e0ed398af77))
+- lint-staged:13.2.3→14.0.0 ([b4838ae](https://github.com/nlibjs/indexen/commit/b4838ae0eb280496bf1fcf499b619874e0fd85e7))
+- typescript:4.9.5→5.1.6 ([68e19a0](https://github.com/nlibjs/indexen/commit/68e19a0a12095a77e6ff3d2eb3fff0d99f516fb3))
 - commander:9.4.1→9.5.0 ([276650b](https://github.com/nlibjs/indexen/commit/276650be3e35732beac61316e9b5c9de3b91e666))
 - @nlib/esmify:0.3.2→0.3.3 ([4171f33](https://github.com/nlibjs/indexen/commit/4171f3314a8f120a9ee5252bd060fb29a4ecd8ba))
 - @nlib/changelog:0.2.3→0.2.4 ([04031ff](https://github.com/nlibjs/indexen/commit/04031ffaacfef4276eb9d9f5efff86b07dec2616))
