@@ -31,7 +31,7 @@
     "test:unit": "ava",
     "lint": "eslint src",
     "postversion": "run-s build postversion:*",
-    "postversion:changelog": "node ./lib/cli.mjs --output CHANGELOG.md",
+    "postversion:changelog": "nlib-changelog --output CHANGELOG.md",
     "postversion:add": "git add .",
     "postversion:commit": "git commit --amend --no-edit"
   },
