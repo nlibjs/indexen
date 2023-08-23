@@ -50,7 +50,9 @@ export const generateCode = async function* ({
     if (!relativePath.startsWith('.')) {
       relativePath = `./${relativePath}`;
     }
-    if (withoutExtension) {
+    if (relativePath.endsWith('.mts')) {
+      relativePath = `${relativePath.slice(0, -2)}js`;
+    } else if (withoutExtension) {
       relativePath = relativePath.replace(/\.\w+$/, '');
     }
     return relativePath;
