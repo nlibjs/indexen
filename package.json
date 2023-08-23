@@ -16,9 +16,9 @@
     "node": ">=14"
   },
   "type": "module",
-  "main": "./lib/indexen.mjs",
+  "main": "./esm/indexen.mjs",
   "files": [
-    "lib",
+    "esm",
     "!**/*.test.*"
   ],
   "bin": {
@@ -26,19 +26,14 @@
     "nlib-indexen": "./lib/cli.mjs"
   },
   "scripts": {
-    "build": "run-s build:*",
-    "build:tsc": "tsc",
-    "build:esmify": "esmify \"lib/**\"",
-    "test": "run-s test:*",
-    "test:build": "run-s test:build:*",
-    "test:build:tsc": "tsc",
-    "test:build:esmify": "nlib-esmify --keepSourceMap \"lib/**\"",
+    "build": "tsc",
+    "test": "run-s build test:*",
     "test:unit": "ava",
-    "lint": "eslint --ext .ts src",
-    "postversion": "run-s postversion:*",
-    "postversion:changelog": "nlib-changelog --output CHANGELOG.md",
+    "lint": "eslint src",
+    "postversion": "run-s build postversion:*",
+    "postversion:changelog": "node ./lib/cli.mjs --output CHANGELOG.md",
     "postversion:add": "git add .",
-    "postversion:amend": "git commit -m \"$(git log -1 --format=%s)\" --amend"
+    "postversion:commit": "git commit --amend --no-edit"
   },
   "dependencies": {
     "commander": "11.0.0",
@@ -47,7 +42,6 @@
   "devDependencies": {
     "@nlib/changelog": "0.3.0",
     "@nlib/eslint-config": "3.20.1",
-    "@nlib/esmify": "0.3.3",
     "@nlib/githooks": "0.1.0",
     "@types/node": "20.5.1",
     "@typescript-eslint/eslint-plugin": "6.4.0",
@@ -65,17 +59,11 @@
     ],
     "env": {
       "node": true
-    },
-    "rules": {
-      "@nlib/no-globals": "off"
-    },
-    "ignorePatterns": [
-      "lib/**"
-    ]
+    }
   },
   "ava": {
     "files": [
-      "lib/**/*.test.{ts,tsx,js,mjs,cjs,jsx}"
+      "esm/**/*.test.{ts,tsx,js,mjs,cjs,jsx}"
     ]
   },
   "lint-staged": {
