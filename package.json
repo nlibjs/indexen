@@ -22,8 +22,8 @@
     "!**/*.test.*"
   ],
   "bin": {
-    "indexen": "./lib/cli.mjs",
-    "nlib-indexen": "./lib/cli.mjs"
+    "indexen": "./esm/cli.mjs",
+    "nlib-indexen": "./esm/cli.mjs"
   },
   "scripts": {
     "build": "tsc",
