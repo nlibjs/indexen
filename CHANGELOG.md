@@ -1,9 +1,10 @@
 # Changelog
 
-## v0.2.8 (2023-08-23)
+## v0.2.9 (2023-08-31)
 
 ### Bug Fixes
 
+- path to cli ([2b2ea8d](https://github.com/nlibjs/indexen/commit/2b2ea8d1d81e479266c8730ed747bf4c4afc7e7b))
 - .mts are converted to .mjs ([a2fb3ac](https://github.com/nlibjs/indexen/commit/a2fb3acbd4ad54ea531ba65d2b9261791f159836))
 - use absolute path ([05fd42c](https://github.com/nlibjs/indexen/commit/05fd42cf1810f65eb65e3f7f429206a93fe0922e))
 
