@@ -33,7 +33,7 @@
     "version": "npx @nlib/changelog --output CHANGELOG.md && git add CHANGELOG.md"
   },
   "dependencies": {
-    "commander": "11.1.0",
+    "commander": "13.1.0",
     "fast-glob": "3.3.3"
   },
   "devDependencies": {
