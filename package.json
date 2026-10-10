@@ -68,6 +68,7 @@
     "**/*.*(m|c)+(j|t)s*(x)": "eslint"
   },
   "renovate": {
+    "enabled": false,
     "extends": [
       "github>nlibjs/renovate-config"
     ]
